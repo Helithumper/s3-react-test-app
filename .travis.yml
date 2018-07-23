@@ -1,0 +1,34 @@
+language: node_js
+node_js:
+ - "10.5"
+
+## Script to Install it
+install:
+ - npm install
+
+## Script to build it
+script:
+ - npm run build
+
+deploy:
+  
+  # Branch to deploy (on means don't trigger unless)
+  on:
+    branch: master
+  provider: s3
+
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  # Name of s3 bucket
+  bucket: s3-react-test-app
+
+  #Don't delete after build
+  skip_cleanup: true
+
+  #Path to local dir for site
+  local_dir: build
+
+  # Set the cache-control header
+  cache_control: "max-age=21600"
+
+
