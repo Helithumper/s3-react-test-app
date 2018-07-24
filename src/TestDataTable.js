@@ -27,6 +27,10 @@ export default class TestDataTable extends React.Component {
         this.setState({loading:true})
         axios({
             url: 'https://rpyxzhzhj7.execute-api.us-east-1.amazonaws.com/default/TestData',
+            headers: {
+                "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS
+            },
             method: 'GET'
         })
             .then(result => {
