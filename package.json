@@ -16,11 +16,11 @@
     "eject": "react-scripts eject"
   },
   "proxy": {
-    "/api": {
-      "target": "https://rpyxzhzhj7.execute-api.us-east-1.amazonaws.com/default",
-      "pathRewrite": { "^/api": "" },
-      "changeOrigin": true,
-      "secure": false
-      }
+    "https://rpyxzhzhj7.execute-api.us-east-1.amazonaws.com/default/TestData": {
+      "target": "https://rpyxzhzhj7.execute-api.us-east-1.amazonaws.com/default/TestData",
+      "pathRewrite": { "^/api": "" }, 
+      "changeOrigin": true, 
+      "secure": false 
+    }
   }
 }

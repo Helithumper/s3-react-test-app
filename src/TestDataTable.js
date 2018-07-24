@@ -26,7 +26,7 @@ export default class TestDataTable extends React.Component {
     reload() {
         this.setState({loading:true})
         axios({
-            url: '/api/TestData',
+            url: 'https://rpyxzhzhj7.execute-api.us-east-1.amazonaws.com/default/TestData',
             method: 'GET'
         })
             .then(result => {
