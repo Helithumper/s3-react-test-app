@@ -13,6 +13,8 @@ class App extends Component {
         </header>
 
         <h1>This shows that CI works!</h1>
+        <h2>This is a dog picture!</h2>
+        <img href="https://www.dogbreedinfo.com/images27/CorgidorYellowLabWelshCorgiMixHybridDogAnnabelle12YearsOld.jpg"/>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
           <br/>
@@ -22,7 +24,6 @@ class App extends Component {
           <strong>Let's put in a youtube video for safe measure!</strong>
           <br />
           <iframe title="hackerman" width="560" height="315" src="https://www.youtube.com/embed/KEkrWRHCDQU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/V4MF2s6MLxY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> */}
         </p>
         <TestDataTable/>
       </div>
