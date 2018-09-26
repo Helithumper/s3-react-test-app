@@ -9,6 +9,9 @@ env:
 ## Script to Install it
 install:
  - npm install
+  # Install any dependencies required for building your site here.
+  # `awscli` is required for invalidation of CloudFront distributions.
+  - pip install awscli
 
 ## Script to build it
 script:
