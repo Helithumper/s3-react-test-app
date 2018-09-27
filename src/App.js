@@ -14,6 +14,7 @@ class App extends Component {
 
         <h1>This shows that CI works!</h1>
         <h2>This is a dog picture!</h2>
+        <h3>Hi Peter</h3>
         <img href="https://www.dogbreedinfo.com/images27/CorgidorYellowLabWelshCorgiMixHybridDogAnnabelle12YearsOld.jpg"/>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
