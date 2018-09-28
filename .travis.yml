@@ -1,45 +1,27 @@
 language: node_js
 node_js:
- - "10.5"
-
+- '10.5'
 env:
   global:
-    - CI=false
-
+  - CI=false
 notifications:
-  slack: $SLACK_TOKEN
-
-## Script to Install it
+  slack:
+    secure: MZthJuaDFFgh72SOozSHMehB+O94U1AtKFHgMNicdSajRndsrsTwQ6oLpw/6kP488INXVOaL4IgTJU8TaroXzG4Msiskj7VCFaZ2XfyhgRtyd1aeNuk+Tin88el7yNVmEAoEdqOTP+iKi2QN0KBvwDKpdU1hIuoK0meVKQjC32FRaf2Gz6qrkyZ2RL9BO/3w3XBye8S3OCk16iZfvs+kjd3PvBIbpS3//p5Nb3pzulqeu3njpF8JpxiTRhW6q7FOvhXw5iGSg08Wd7sESMY6tnnLlG3lrZQfJKeixFIxxfkfJQ5GWjCTHDUhfZJ95YHMiFRlBnKPvW8bDYX8XHC+TrhKs7gOQIfTYs9I1mCwokGPXLPpLhtAdh7i0KiuGWDjugnpY50DXtkb31IKK/eVNVIfbIaCCR3cYv3kcERMULgHqFKOzk8OLYneUUFWAMbwtxXjgUS2JE1ZjCA9toSqqmFaL4VCoEeN4PjvQN1UaIMSUA86BG0bZ+hTGqXL6aFquYxzpQQQQo7TAW7Zm3USL7hImnvsLpTOoNXWqfAs6UQMJEBNmdreXre0YPQLwc5EhQiXMwLRDHnR8IU9ZkxCEyJ+zuloY5unV7IHL9Keb9bp2tZgtfiY6aGFLSGYCqkZzsXxUC0mowtchlxL7o7Zjgo1FqSdZwUgofbZadeGv4s=
 install:
- - npm install
-  # Install any dependencies required for building your site here.
-  # `awscli` is required for invalidation of CloudFront distributions.
- - npm install -g travis-ci-cloudfront-invalidation
-
-## Script to build it
+- npm install
+- npm install -g travis-ci-cloudfront-invalidation
 script:
- - npm run build
-
+- npm run build
 deploy:
-  
-  # Branch to deploy (on means don't trigger unless)
   on:
     branch: master
   provider: s3
-
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  # Name of s3 bucket
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
   bucket: s3-react-test-app
-
-  #Don't delete after build
   skip_cleanup: true
-
-  #Path to local dir for site
   local_dir: build
-
-  # Set the cache-control header
-  cache_control: "max-age=21600"
-
+  cache_control: max-age=21600
 after_deploy:
-  - travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY -s $AWS_SECRET_KEY -c $CLOUDFRONT_DISTRIBUTION_ID -i '/*' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST
+- travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY -s $AWS_SECRET_KEY -c $CLOUDFRONT_DISTRIBUTION_ID
+  -i '/*' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST
