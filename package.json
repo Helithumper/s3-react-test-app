@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
-    "react-table": "^6.8.6"
+    "react-table": "^6.8.6",
+    "reactstrap": "^6.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,9 +20,11 @@
   "proxy": {
     "https://rpyxzhzhj7.execute-api.us-east-1.amazonaws.com/default/TestData": {
       "target": "https://rpyxzhzhj7.execute-api.us-east-1.amazonaws.com/default/TestData",
-      "pathRewrite": { "^/api": "" }, 
-      "changeOrigin": true, 
-      "secure": false 
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true,
+      "secure": false
     }
   }
 }

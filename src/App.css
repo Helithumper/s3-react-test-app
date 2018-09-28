@@ -22,6 +22,14 @@
   font-size: large;
 }
 
+.card {
+  margin: 10%;
+}
+
+.alert-primary {
+  margin: 5%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
