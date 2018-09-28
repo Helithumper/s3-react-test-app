@@ -6,6 +6,9 @@ env:
   global:
     - CI=false
 
+notifications:
+  slack: $SLACK_TOKEN
+
 ## Script to Install it
 install:
  - npm install
